@@ -9,8 +9,8 @@ class math
 
 	void oper();
 
-	long int factorial(long int x); //Для факториала
-	void vivod(long int result);  
+	unsigned long long factorial(unsigned long long x); // Для факториала
+	void vivod(unsigned long long result);  // Перегрузка vivod() для факториала
 
 	void vivod(double result);
 public:
