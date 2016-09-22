@@ -8,15 +8,17 @@ math::math()
 
 void math::start()
 {
-	std::cin >> a >> sim >> b;
+	std::cin >> a 
+		>> sim;
+	if (sim != '!') std::cin >> b;
 	oper();
 }
 
 void math::oper()
 {
-	switch (sim)
-	{
-		case '+': 
+		switch (sim)
+		{
+		case '+':
 			vivod(a + b);
 			break;
 		case '-':
@@ -35,16 +37,17 @@ void math::oper()
 			vivod(factorial(a));
 			break;
 		case '#':
-			vivod(pow(b,1.0/a));
+			vivod(pow(b, 1.0 / a));
 			break;
-	default:
-		std::cout << "Error\n";
-		break;
-	}
+		default:
+			std::cout << "Error\n";
+			break;
+		}
 }
 
-long int math::factorial(long int x)
+unsigned long long math::factorial(unsigned long long x)
 {
+	if (x < 0) return -1;
 	if (x == 0) return 1;
 	return x * factorial(x - 1);
 }
@@ -54,13 +57,12 @@ void math::vivod(double result)
 	std::cout << a << " " << sim << " " << " " << b << " = " << result << "\n";
 }
 
-void math::vivod(long int result)
+void math::vivod(unsigned long long result)
 {
 	std::cout << a << " " << sim << " " << " = " << result << "\n";
 }
 
 math::~math()
 {
-	std::cout << "DEBAG: " << a << " " << sim << " " << " " << b << "\n";
 	system("pause");
 }
